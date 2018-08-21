@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.shiny-output-error {
+  visibility: hidden; 
+}
+  
+  *:before,
+*:after {
+  box-sixing: border-box;
+  outline: none;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.container-fluid {
+  padding-right: 0px !important; 
+  padding-left: 0px !important; 
+  margin-right: auto;
+  margin-left: auto;
+  min-height: 100%;
+  height: 100%;
+}
+
+.caf-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'header'
+  'content';
+}
+.caf-nav {
+  grid-area: header;
+  background: #005186;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.caf-nav__item {
+  color: #fff;
+    text-transform: uppercase;
+  font-weight: bold;
+}
+.caf-nav__item--active {
+  color: #fff !important;
+    text-decoration: underline;
+  /*text-decoration: none !important;*/
+}
+
+
+#barraNav {
+height: 100%;
+}
+
+.caf-content {
+  grid-area: content;
+  background: #fff;
+    /*display: grid;*/
+}
+
+.no-visible {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .caf-container {
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'header content';
+  }
+  .caf-nav {
+    flex-direction: column-reverse;
+  }
+  .caf-nav .caf-nav__item:nth-child(1) {
+    transform-origin: center bottom;
+    transform: rotate(-90deg) translate(75px, 50%);
+  }
+  .caf-nav .caf-nav__item:nth-child(2) {
+    transform: rotate(-90deg) translateX(-50px)
+  }
+  .caf-nav .caf-nav__item:nth-child(3) {
+    transform-origin: center bottom;
+    transform: rotate(-90deg) translateY(50%) translateX(-150px)
+  }
+  
+}
+
+
+.leaflet-pane {
+  z-index: 0 !important;
+}
+
+
+
+
+
+.loadmessage {
+  position: fixed;
+  width: 5%;
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+
+.contBotones {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  /*justify-content: center;*/
+}
+
+
+.selecGen {
+  display: flex;
+  justify-content: center;
+}
+
+.control-label{
+  display: none;
+}
+
+#selectorMapas {
+  margin-left: 3%;
+  margin-top: 2%;
+}
+
+.butTemas {
+  width: 70px;
+  height: 70px;
+  font-size: 11px;
+  text-align: left;
+  margin: auto !important;
+  padding: auto;
+  background-color: transparent;
+  border: 1px solid #005186;
+  border-radius: 2px;
+  color: #005186;
+}
+
+
+.contMenu{
+  background-color: transparent;
+  margin-left: 10px;
+}
+
+.contMenu .butTemas.activEnc,
+.contMenu .butTemas.active,
+.contMenu:hover .butTemas {
+  background-color: #005186;
+    border-color: #005186;
+    color: white;
+}
+
+.dropdownMenuFicha {
+  border: 1px solid #005186;
+  background: #005186;
+    display: none;
+  position: absolute;
+  z-index: 100;
+  width: 300px;
+  margin-top: -3px;
+}
+
+.dropdownMenuContent{
+  margin: 25px 15px;
+}
+
+.dropdownMenuContent a:hover {
+  color: #509f27;
+}
+
+
+.dropdown-content {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.dropdownMenuContent a {
+  color: #fff;
+    font-size: 11px;
+  cursor: pointer;
+  display: block;
+  line-height: 15px;
+  text-decoration: none;
+}
+
+.contMenu:hover .dropdownMenuFicha {
+  display: block;
+  z-index: 10000;
+}
+
+.UImapEstac {
+  margin-top: 10%;
+}
+
+.vizPar {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+rect.svgcolor {
+  fill: #005186 !important;
+}
+
+#tiempoV, #nRutas {
+float: right;
+margin-right: 5%;
+margin-top: -7%;
+}
+
+.irs-from, .irs-to, .irs-single{
+  background:#005186 !important;
+}
+
+.irs-min, .irs-max {
+  background: rgb(221, 221, 221) !important;
+  font-weight: 700 !important;
+}
+
+
+.irs-bar-edge {
+  border: 1px solid #005186 !important;
+  background: #005186 !important;
+}
+
+.irs-bar {
+  border-top: 1px solid #005186 !important;
+  border-bottom: 1px solid #005186 !important;
+  background: #005186 !important;
+}
+
+
+#amoave {
+margin-top: 3%;
+}
+
+
+
+.slider-animate-container {
+  text-align: right;
+  margin-top: -40px;
+  margin-right: -20px;
+}
+
+.slider-animate-button {
+  opacity: 1 !important;
+}
+
+.tabStyle {
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 590px !important;
+  height: 403px;
+  margin-left: 3%;
+}
+
+
+#selectorItems.selectize-input {
+  width: 470px !important;
+}
+
+
+
+#GrafBar {
+display: grid;
+gap: 31px;
+text-align: center;
+}
+
+.barType {
+  width: 47px;
+  height: 47px;
+  background: transparent;
+  border: 1px solid #005186;
+}
+
+.averSel {
+  margin-top: 2%;
+  margin-left: 3%;
+}
+
+.JunGraViz {
+  display: flex;
+  margin-top: 1%;
+  margin-left: 3%;
+}
+
+.twoCols {
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+
+.oneLine {
+  display: inline-flex;
+}
+
+
+#selcbase, #selBarrio, #anioSel, #boxOpc {
+ margin-top: 1%;
+ margin-left: 2%;
+}
+
+.selectize-dropdown {
+  z-index: 10000 !important;
+}
+
+.menuEncuesta {
+  display: flex;
+}
+
+#selectorItems .selectize-control {
+  width: 500px !important;
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.selEncu {
+  display: inline-block;
+}
+
+#radioBut {
+  margin-left: 5%;
+}
+
+.scrollTab {
+  overflow-x: auto;
+  height: 330px;
+}
