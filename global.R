@@ -16,8 +16,8 @@ hcoptslang$downloadJPEG <- "Descarga en JPEG"
 hcoptslang$downloadPNG <- "Descarga en PNG"
 hcoptslang$downloadPDF <- "Descarga en PDF"
 hcoptslang$downloadSVG <- "Descarga en SVG"
-hcoptslang$thousandsSep <- ","
-
+hcoptslang$thousandsSep <- "."
+hcoptslang$decimalPoint <- ","
 options(highcharter.lang = hcoptslang)
 
 
