@@ -87,7 +87,7 @@ func_hgch_treemap_CatNum <- function (data, title = NULL, subtitle = NULL, capti
 }
 
 
-func_hgch_bar_CatNum <- function (data,orientation = 'hor', sort = 'desc', verLabel = NULL, horLabel = NULL, marks = c(',', '.'), colors = '#89909F', nDigits = NULL, format = c("", ""), theme = NULL) 
+func_hgch_bar_CatNum <- function (data,orientation = 'hor', sort = 'desc', marks = c(',', '.'), colors = '#89909F', nDigits = NULL, format = c("", ""), theme = NULL) 
 {
   f <- fringe(data)
   nms <- getClabels(f)
@@ -97,7 +97,7 @@ func_hgch_bar_CatNum <- function (data,orientation = 'hor', sort = 'desc', verLa
   d$a <- as.character(d$a)
   
   data <- list()
-  bla <- purr::map(1:nrow(d), function(z) {
+  bla <- map(1:nrow(d), function(z) {
     data$data[[z]] <<- list(name = d$a[z], y = d$b[z], color = as.character(d$color[z]))
   })
   formatLabAxis <- paste0("{value:", marks[1], marks[2], "f}")
