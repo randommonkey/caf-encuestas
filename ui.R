@@ -1,3 +1,14 @@
+library(shiny)
+library(shinyjs)
+library(tidyverse)
+library(leaflet)
+library(geojsonio)
+library(hgchmagic)
+library(zip)
+library(RSQLite)
+library(datafringe)
+library(DT)
+
 shinyUI(
   fluidPage(
     useShinyjs(),

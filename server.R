@@ -167,7 +167,7 @@ baseFiltroEncuesta <- reactive({
   d <- paste0('SELECT * FROM ', idEnc, '_data')
   df <- tbl(db, sql(d))
   }
-  df
+  as.data.frame(df)
   
 })
 
@@ -182,7 +182,7 @@ dicFiltroEncuesta <- reactive({
   df <- tbl(db, sql(d)) %>% collect()
   
   df$label <- Hmisc::capitalize(tolower(df$label))
-  df
+  as.data.frame(df)
 })
 
 
