@@ -97,7 +97,7 @@ func_hgch_bar_CatNum <- function (data,orientation = 'hor', sort = 'desc', verLa
   d$a <- as.character(d$a)
   
   data <- list()
-  bla <- map(1:nrow(d), function(z) {
+  bla <- purr::map(1:nrow(d), function(z) {
     data$data[[z]] <<- list(name = d$a[z], y = d$b[z], color = as.character(d$color[z]))
   })
   formatLabAxis <- paste0("{value:", marks[1], marks[2], "f}")
