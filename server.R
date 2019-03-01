@@ -153,7 +153,7 @@ output$vizEnc <- renderHighchart({
 
   if (graf == 'bar') {
     if (ff != 'volumen_vehicular') {
-      h <- hgchmagic::hgch_bar_CatNum(filterEncu(), orientation = 'hor', sort = 'desc', verLabel = ' ', marks = c(',', '.'), colors = '#89909F')
+      h <- func_hgch_bar_CatNum(filterEncu(), orientation = 'hor', sort = 'desc', verLabel = ' ', marks = c(',', '.'), colors = '#89909F', nDigits = 0)
     } else{
       h <- hgchmagic::hgch_bar_grouped_CatCatNum(filterEncu(), orientation = 'hor', sort = 'desc', verLabel = ' ', theme = caf_theme, colors = '#0b356D')
     }

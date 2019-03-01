@@ -85,3 +85,51 @@ func_hgch_treemap_CatNum <- function (data, title = NULL, subtitle = NULL, capti
     hc <- hc %>% hc_exporting(enabled = TRUE)
   hc
 }
+
+
+func_hgch_bar_CatNum <- function (data,orientation = 'hor', sort = 'desc', verLabel = NULL, horLabel = NULL, marks = c(',', '.'), colors = '#89909F', nDigits = NULL, format = c("", ""), theme = NULL) 
+{
+  f <- fringe(data)
+  nms <- getClabels(f)
+  d <- f$d
+  d <- sortSlice(d, "b", sort, NULL)
+  d$color <- colors
+  d$a <- as.character(d$a)
+  
+  data <- list()
+  bla <- map(1:nrow(d), function(z) {
+    data$data[[z]] <<- list(name = d$a[z], y = d$b[z], color = as.character(d$color[z]))
+  })
+  formatLabAxis <- paste0("{value:", marks[1], marks[2], "f}")
+  
+  
+  if(is.null(nDigits)) nDigits <- 2
+  
+  if (!is.null(nDigits)) {
+    formatLabAxis <- paste0("{value:", marks[1], marks[2], 
+                            nDigits, "f}")
+  }
+  if (is.null(format)) {
+    format[1] = ""
+    format[2] = ""
+  }
+  aggFormAxis <- "function() {return this.value+\"\";}"
+  
+  aggFormAxis <- paste0("function() { return '", format[1], 
+                        "' + Highcharts.numberFormat(this.value, ", nDigits, ", '", 
+                        marks[2], "', '", marks[1], "') + '", format[2], "'}")
+
+  hc <- highchart() %>% 
+          hc_chart(type = ifelse(orientation == "hor", "bar", "column")) %>% 
+            hc_xAxis(title = list(text = " "),  
+             type = "category") %>%
+               hc_yAxis(title = list(text = "Total"),
+                        labels = list(format = formatLabAxis, 
+                                      formatter = JS(aggFormAxis))) %>%
+                  hc_series(data) %>% 
+                   hc_legend(enabled = F)
+  if (is.null(theme)) hc <- hc %>% hc_add_theme(custom_theme(custom = theme))
+
+  hc
+}
+
